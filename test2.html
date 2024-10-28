@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .iframe-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .iframe1 {
+            width: 60%;
+            height: 700px;
+            border: 1px solid #ccc;
+        }
+
+        .iframe2 {
+            width: 39%;
+            height: 700px;
+            border: 1px solid #ccc;
+        }
+
+        .error-message {
+            height: 700px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid red;
+            background-color: #f8d7da;
+            color: #721c24;
+            text-align: center;
+        }
+
+        #error1 {
+            width: 60%;
+        }
+
+        #error2 {
+            width: 39%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="iframe-container">
+        <!-- 第一個網頁 -->
+        <iframe class="iframe1" id="iframe1" src="www/index.html" title="First Website"></iframe>
+        <div id="error1" class="error-message">Failed to load content. <br><a href="https://www.example.com"
+                target="_blank">Open in new tab</a></div>
+
+        <!-- 第二個網頁 -->
+        <iframe class="iframe2" id="iframe2" src="https://chateverywhere.app/zh"
+            title="Second Website"></iframe>
+        <div id="error2" class="error-message">Failed to load content. <br><a href="https://chateverywhere.app/zh"
+                target="_blank">Open in new tab</a></div>
+    </div>
+
+    <script>
+        document.getElementById('iframe1').onload = function () {
+            if (!this.contentWindow || this.contentWindow.location.href === 'about:blank') {
+                document.getElementById('iframe1').style.display = 'none';
+                document.getElementById('error1').style.display = 'flex';
+            }
+        };
+
+        document.getElementById('iframe1').onerror = function () {
+            document.getElementById('iframe1').style.display = 'none';
+            document.getElementById('error1').style.display = 'flex';
+        };
+
+        document.getElementById('iframe2').onload = function () {
+            if (!this.contentWindow || this.contentWindow.location.href === 'about:blank') {
+                document.getElementById('iframe2').style.display = 'none';
+                document.getElementById('error2').style.display = 'flex';
+            }
+        };
+
+        document.getElementById('iframe2').onerror = function () {
+            document.getElementById('iframe2').style.display = 'none';
+            document.getElementById('error2').style.display = 'flex';
+        };
+    </script>
+</body>
+
+</html>

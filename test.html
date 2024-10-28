@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* 設定 iframe 的寬度和高度，讓兩個 iframe 並排 */
+        .iframe-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .iframe1 {
+            width: 60%; /* 設定每個 iframe 佔據一半空間 */
+            height: 700px; /* 設定 iframe 的高度 */
+            border: 1px solid #ccc; /* 增加邊框以區分兩個頁面 */
+        }
+       .iframe2 {
+            width: 39%; /* 設定每個 iframe 佔據一半空間 */
+            height: 700px; /* 設定 iframe 的高度 */
+            border: 1px solid #ccc; /* 增加邊框以區分兩個頁面 */
+        }
+        .error-message {
+            width: 49%;
+            height: 500px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid red;
+            background-color: #f8d7da;
+            color: #721c24;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="iframe-container">
+        <!-- 第一個網頁 -->
+        <iframe class="iframe1" id="iframe1" src="www/index.html" title="First Website"></iframe>
+        <div id="error1" class="error-message">Failed to load content. <br><a href="https://www.example.com" target="_blank">Open in new tab</a></div>
+        
+        <!-- 第二個網頁 -->
+        <iframe class="iframe2" id="iframe2" src="https://lsps7667.wixsite.com/my-site-1" title="Second Website"></iframe>
+        <div id="error2" class="error-message">Failed to load content. <br><a href="https://lsps7667.wixsite.com/my-site-1" target="_blank">Open in new tab</a></div>
+    </div>
+    
+    <script>
+        // 檢查 iframe 加載是否失敗
+        document.getElementById('iframe1').onload = function() {
+            if (!this.contentDocument || this.contentDocument.body.innerHTML.includes('X-Frame-Options')) {
+                document.getElementById('iframe1').style.display = 'none';
+                document.getElementById('error1').style.display = 'flex';
+            }
+        };
+
+        document.getElementById('iframe2').onload = function() {
+            if (!this.contentDocument || this.contentDocument.body.innerHTML.includes('X-Frame-Options')) {
+                document.getElementById('iframe2').style.display = 'none';
+                document.getElementById('error2').style.display = 'flex';
+            }
+        };
+    </script>
+</body>
+</html>

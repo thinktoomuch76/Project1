@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="icon.ico" rel="shortcut icon"/>
+    <title>遊戲式學習結合AI學習夥伴</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex; /* 使用 Flexbox 進行水平佈局 */
+            height: 100vh; /* 使用視窗高度 */
+            overflow: hidden; /* 防止滾動條 */
+        }
+        .game-container {
+            width: 60vw; /* 設定遊戲寬度為螢幕寬度的60% */
+            height: auto; /* 高度自動 */
+            aspect-ratio: 16 / 9; /* 設定比例為16:9 */
+            overflow: hidden;
+        }
+        .game-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .side-iframe {
+            width: 39vw; /* 設定側邊iframe寬度為螢幕寬度的39% */
+            height: 100%; /* 高度為100% */
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="game-container">
+    <iframe src="www/index.html" allowfullscreen></iframe>
+</div>
+
+<iframe class="side-iframe" src="https://chateverywhere.app/zh" allowfullscreen></iframe>
+
+</body>
+</html>

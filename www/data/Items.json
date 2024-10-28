@@ -1,0 +1,4 @@
+[
+null,
+{"id":1,"animationId":0,"consumable":true,"damage":{"critical":false,"elementId":0,"formula":"0","type":0,"variance":20},"description":"語廷的蝴蝶結","effects":[{"code":44,"dataId":1,"value1":1,"value2":0}],"hitType":0,"iconIndex":149,"itypeId":2,"name":"蝴蝶結","note":"","occasion":0,"price":0,"repeats":1,"scope":11,"speed":0,"successRate":100,"tpGain":0}
+]
